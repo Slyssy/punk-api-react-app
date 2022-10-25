@@ -1,9 +1,12 @@
+// * Importing Beers Component
+import Beers from './components/Beers';
 import './App.css';
 
 function App() {
   return (
     <div className='App'>
-      <h1>Hello World!</h1>
+      {/* Using Beers Component */}
+      <Beers />
     </div>
   );
 }
