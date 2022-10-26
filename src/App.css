@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: rgb(241, 239, 239);
+  color: rgb(71, 63, 63);
 }
 
 .page-container {
@@ -9,35 +17,107 @@
   margin: 2em auto;
 }
 
-ul {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.title {
+  text-align: center;
+  font-size: 54px;
+  margin: 2em auto;
 }
 
-li {
-  flex-basis: 33%;
-  display: flex;
+ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 2.5em;
+  column-gap: 3.5em;
+}
+
+.details {
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 1.5em;
+  margin-top: 1.5em; */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 1em;
+  padding: 1.5em;
+  box-shadow: 4px 8px 10px -1px rgba(0, 0, 0, 0.61);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.details:hover {
+  transform: scale(1.02);
 }
 
 figure {
-  width: 20%;
+  grid-column: 2/4;
+  width: 100%;
 }
 
 img {
   width: 100%;
+  object-fit: contain;
+  max-height: 300px;
+}
+
+.beer-name {
+  grid-column: span 4;
+  justify-self: center;
 }
 
 .tagline {
+  grid-column: span 4;
+  justify-self: center;
   font-style: italic;
 }
 
 .date-percentage {
   display: flex;
   gap: 1.5em;
+  grid-column: span 4;
+  justify-self: center;
+}
+
+.description {
+  grid-column: span 4;
+  text-align: center;
+}
+.section-title {
+  font-size: 24px;
+  grid-column: span 4;
+  justify-self: center;
+}
+
+.ingredients {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  grid-column: span 4;
+  row-gap: 1.25em;
+}
+
+.ingredient-title {
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+  list-style: none;
+}
+
+.ingredient-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+  align-self: start;
+}
+
+.yeast {
+  grid-column: span 4;
+  justify-self: center;
+}
+
+.food-pairing {
+  grid-column: span 4;
+  text-align: center;
 }
