@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import '../App.css';
+import LikeButton from './LikeButton';
+import BuildList from './BuildList';
 
 export default class Beers extends Component {
   constructor(props) {
@@ -34,10 +37,11 @@ export default class Beers extends Component {
           {this.state.beers.map((beer) => {
             console.log(beer);
             return (
-              <li className='details'>
+              <li key={beer.id} className='details'>
                 <figure>
                   <img src={beer.image_url} alt='beer' />
                 </figure>
+                <LikeButton />
                 <h3 className='beer-name'>{beer.name}</h3>
                 <h4 className='tagline'>{beer.tagline}</h4>
                 <div className='date-percentage'>
@@ -47,21 +51,25 @@ export default class Beers extends Component {
                 <p className='description'>{beer.description}</p>
                 <h4 className='section-title'>Ingredients:</h4>
                 <div className='ingredients'>
-                  <ul className='ingredient-list'>
-                    <li className='ingredient-title'>Hops</li>
-                    {beer.ingredients.hops.map((hop) => {
-                      // console.log(malt.name);
-                      return <li className='hop'>{hop.name}</li>;
-                    })}
-                  </ul>
-                  <ul className='ingredient-list'>
-                    <li className='ingredient-title'>Malts</li>
-                    {beer.ingredients.malt.map((malt) => {
-                      // console.log(malt.name);
-                      return <li className='malt'>{malt.name}</li>;
-                    })}
-                  </ul>
+                  <BuildList data={beer.ingredients.hops} item='Hops' />
+                  <BuildList data={beer.ingredients.malt} item='Malts' />
                   <h5 className='yeast'>Yeast: {beer.ingredients.yeast}</h5>
+                  <h4 className='section-title'>Brewing Method</h4>
+                  <p className='brew-instructions'>
+                    Fermentation Temp: {beer.method.fermentation.temp.value}°{' '}
+                    {beer.method.fermentation.temp.unit}
+                  </p>
+
+                  {beer.method.mash_temp.map((element) => {
+                    return (
+                      <p className='brew-instructions'>
+                        Mash Temp: {element.temp.value}° {element.temp.unit} for
+                        a duration of {element.duration}.
+                      </p>
+                    );
+                  })}
+                  <p className='twist'>{beer.method.twist}</p>
+                  <h5 className='brewers-tip'>{beer.brewers_tips}</h5>
                 </div>
                 <h4 className='section-title'>Food Pairing</h4>
                 <p className='food-pairing'>

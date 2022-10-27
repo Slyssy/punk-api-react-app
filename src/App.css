@@ -31,22 +31,12 @@ ul {
 }
 
 .details {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1.5em; */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1em;
   padding: 1.5em;
   box-shadow: 4px 8px 10px -1px rgba(0, 0, 0, 0.61);
   border-radius: 10px;
-  transition: all 0.3s ease;
-}
-
-.details:hover {
-  transform: scale(1.02);
 }
 
 figure {
@@ -97,14 +87,15 @@ img {
   row-gap: 1.25em;
 }
 
-.ingredient-title {
+.list-title {
   font-size: 20px;
   font-weight: 700;
   font-style: italic;
   list-style: none;
+  text-decoration: underline;
 }
 
-.ingredient-list {
+.unordered-list {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -117,7 +108,30 @@ img {
   justify-self: center;
 }
 
+.brew-instructions {
+  grid-column: span 4;
+  justify-self: center;
+}
+
+.twist {
+  grid-column: span 4;
+  justify-self: center;
+  color: crimson;
+  text-align: center;
+}
+
+.brewers-tip {
+  grid-column: span 4;
+  justify-self: center;
+  text-align: center;
+}
+
 .food-pairing {
   grid-column: span 4;
   text-align: center;
+}
+
+.like {
+  grid-column: 4/5;
+  justify-self: end;
 }
